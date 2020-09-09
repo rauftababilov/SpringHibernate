@@ -28,9 +28,12 @@ public class UserDaoImp implements UserDao {
 
    @Override
    public User getUserOnCar(int number, int series) {
-      String query = "FROM User user WHERE user.car.number = '" + number + "'"
-              + "AND user.car.series = " + series;
 
-      return (User) sessionFactory.getCurrentSession().createQuery(query).getSingleResult();
+      String hql = "From User where car.number = :number AND car.series = :series";
+
+      return (User) sessionFactory.getCurrentSession().createQuery(hql)
+              .setParameter("number", number)
+              .setParameter("series", series)
+              .getSingleResult();
    }
 }

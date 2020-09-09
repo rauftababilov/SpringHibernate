@@ -47,7 +47,6 @@ public class MainApp {
          System.out.println();
       }
 
-//      User user = userService.getUserOnCar(444, 4);
       System.out.println(userService.getUserOnCar(444, 4).toString());
 
       context.close();
